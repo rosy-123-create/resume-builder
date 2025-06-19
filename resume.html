@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Resume Builder</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="s.css">
+</head>
+<body>
+<center>
+<h2 id="h">RESUME BUILDER</h2></center>
+  <div class="progress-bar"><div class="progress" id="progressBar"></div></div>
+
+  <div class="container">
+    <!-- FORM -->
+    <form id="resumeForm">
+      <label>Name</label>
+      <input type="text" id="name" />
+
+      <label>Email</label>
+      <input type="email" id="email" />
+
+      <label>Phone</label>
+      <input type="tel" id="phone" />
+
+      <label>Profile Summary</label>
+      <textarea id="summary" rows="4"></textarea>
+
+      <label>Education</label>
+      <div id="educationFields"></div>
+      <button type="button" onclick="addEducation()">+ Add Education</button>
+
+      <label>Skills</label>
+      <div>
+        <label><input type="checkbox" class="skill" value="HTML" /> HTML</label>
+        <label><input type="checkbox" class="skill" value="CSS" /> CSS</label>
+        <label><input type="checkbox" class="skill" value="JavaScript" /> JavaScript</label>
+        <label><input type="checkbox" class="skill" value="Python" /> Python</label>
+        <label><input type="checkbox" class="skill" value="React" /> React</label>
+      </div>
+
+      <label>Experience</label>
+      <div id="experienceFields"></div>
+      <button type="button" onclick="addExperience()">+ Add Experience</button>
+
+      <div class="button-group">
+        <button type="button" onclick="clearForm()">🧹 Clear</button>
+        <button type="button" onclick="downloadPDF()">📄 Download PDF</button>
+      </div>
+    </form>
+
+    <!-- PREVIEW -->
+    <div class="preview" id="resumePreview">
+      <h2 id="previewName">Your Name</h2>
+      <p><strong>Email:</strong> <span id="previewEmail"></span></p>
+      <p><strong>Phone:</strong> <span id="previewPhone"></span></p>
+      <p><strong>Summary:</strong><br><span id="previewSummary"></span></p>
+      <h3>Education</h3>
+      <ul id="previewEducation"></ul>
+      <h3>Skills</h3>
+      <div class="skills" id="previewSkills"></div>
+      <h3>Experience</h3>
+      <ul id="previewExperience"></ul>
+    </div>
+  </div>
+
+  <script src="sc.js">
+     </script>
+
+</body>
+</html>
